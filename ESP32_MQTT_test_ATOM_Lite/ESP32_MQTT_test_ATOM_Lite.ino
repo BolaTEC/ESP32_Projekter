@@ -34,9 +34,9 @@ void setup() {
   Serial.begin(9600);
 
   // set the ADC attenuation to 11 dB (up to ~3.3V input)
-  analogSetAttenuation(ADC_11db);
+  //analogSetAttenuation(ADC_11db);
 
-   WiFi.mode(WIFI_STA);
+  WiFi.mode(WIFI_STA);
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
 
   Serial.println("ESP32 - Connecting to Wi-Fi");
@@ -92,7 +92,7 @@ void connectToMQTT() {
 void sendToMQTT() {
   StaticJsonDocument<200> message;
   message["timestamp"] = millis();
-  message["data"] = analogRead(0);  // Or you can read data from other sensors
+  message["data"] = analogRead(33);  // 0 on some modules 33 on Atom-Lite. Or you can read data from other sensors
   char messageBuffer[512];
   serializeJson(message, messageBuffer);
 
