@@ -40,14 +40,6 @@ String color4Button ="red";
 
 bool toggleButton=false;
 
-//*******************************************************
-// Predeclaration (Skal være her når PlatFormIO bruges og kode er i cpp)
-void connectToMQTT();
-void sendToMQTT();
-void sendToMQTT_BTN();
-void messageHandler(String &topic, String &payload);
-//*******************************************************
-
 void setup() {
   // make the final MQTT Topic strings
   strcpy(PUBLISH_TOPIC,MQTT_CLIENT_ID);
